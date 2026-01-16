@@ -54,3 +54,14 @@ class Library:
             raise BookNotBorrowedError(f"Book ID {book_id} is not borrowed")
 
         self.books[book_id]["borrowed"] = False
+
+    # ------------------ Sprint 3 ------------------
+    def generate_report(self) -> str:
+        header = "Book ID | Title | Author | Status"
+        lines = [header]
+
+        for book_id, info in self.books.items():
+            status = "Borrowed" if info["borrowed"] else "Available"
+            lines.append(f"{book_id} | {info['title']} | {info['author']} | {status}")
+
+        return "\n".join(lines)
