@@ -35,3 +35,22 @@ class Library:
             "author": author,
             "borrowed": False
         }
+
+    # ------------------ Sprint 2 ------------------
+    def borrow_book(self, book_id: str):
+        if book_id not in self.books:
+            raise BookNotFoundError(f"Book ID {book_id} not found")
+
+        if self.books[book_id]["borrowed"]:
+            raise BookAlreadyBorrowedError(f"Book ID {book_id} is already borrowed")
+
+        self.books[book_id]["borrowed"] = True
+
+    def return_book(self, book_id: str):
+        if book_id not in self.books:
+            raise BookNotFoundError(f"Book ID {book_id} not found")
+
+        if not self.books[book_id]["borrowed"]:
+            raise BookNotBorrowedError(f"Book ID {book_id} is not borrowed")
+
+        self.books[book_id]["borrowed"] = False
