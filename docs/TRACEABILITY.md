@@ -1,12 +1,14 @@
-# TRACEABILITY MATRIX
+# Traceability Matrix
 
-Traceability connects requirements (user stories) → code → unit tests → releases(tags).
-
-| User Story ID | Requirement / Feature | Code Location | Test Case(s) | Sprint | Release Tag |
-|-------------|------------------------|--------------|--------------|--------|-------------|
-| US1 | Add new book (ID, title, author) | src/library.py : Library.add_book() | test_successful_book_addition | 1 | v0.1 |
-| US2 | Reject duplicate book ID | src/library.py : Library.add_book() | test_duplicate_book_addition_raises_error | 1 | v0.1 |
-| US3 | Borrow a book | src/library.py : Library.borrow_book() | test_borrowing_available_book | 2 | v0.2 |
-| US5 | Prevent borrowing borrowed book | src/library.py : Library.borrow_book() | test_borrowing_unavailable_book_raises_error | 2 | v0.2 |
-| US4 | Return a book | src/library.py : Library.return_book() | test_returning_book_updates_status_correctly | 2 | v0.2 |
-| US6 | Generate library report | src/library.py : Library.generate_report() | test_report_contains_header, test_report_contains_at_least_one_book_entry | 3 | v0.3 |
+| User Story | Feature | Method | Unit Test |
+|------------|---------|--------|-----------|
+| Sprint 1 | Add Book | `add_book` | `test_successful_book_addition` |
+| Sprint 1 | Duplicate ID | `add_book` | `test_duplicate_book_addition_raises_error` |
+| Sprint 2 | Borrow Book | `borrow_book` | `test_borrow_book_success` |
+| Sprint 2 | Borrow Not Found | `borrow_book` | `test_borrow_book_not_found` |
+| Sprint 2 | Borrow Already Borrowed | `borrow_book` | `test_borrow_already_borrowed` |
+| Sprint 2 | Return Book | `return_book` | `test_return_book_success` |
+| Sprint 2 | Return Not Found | `return_book` | `test_return_book_not_found` |
+| Sprint 2 | Return Not Borrowed | `return_book` | `test_return_book_not_borrowed` |
+| Sprint 3 | Report Header | `generate_report` | `test_generate_report_header` |
+| Sprint 3 | Report Order/Content | `generate_report` | `test_generate_report_content_and_sorting` |
